@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <title>Waypoints in Directions</title>
+  
+
+
+    <script  src="src.js"></script>
+    <script>
+     
+       
+    </script>
+    <style>
+      
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+}
+
+#sidebar {
+  flex-basis: 15rem;
+  flex-grow: 1;
+  padding: 1rem;
+  max-width: 30rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#map {
+  flex-basis: 0;
+  flex-grow: 4;
+  height: 100%;
+}
+
+#directions-panel {
+  margin-top: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar" style="display: none;">
+        <div>
+          <b>Start:</b>
+          <select id="start">
+            <option value="Lahore, Pakistan">Lahore, Pakistan</option>
+            <option value=">Islamabad, Pakistan">Islamabad, Pakistan</option>
+            <option value="Multan, Pakistan">Multan, Pakistan</option>
+            
+          </select>
+          <br />
+          <b>Waypoints:</b> <br />
+          <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
+          <select multiple id="waypoints">
+            <option value="kahror pakka, Pakistan">kahror pakka, Pakistan</option>
+            <option value="lodhran, Pakistan">lodhran, Pakistan</option>
+            <option value="Ahmedpur east, Pakistan">Ahmedpur east, Pakistan</option>
+           
+            
+          </select>
+          <br />
+          <b>End:</b>
+          <select id="end"> 
+            <option value="gilgit, Pakistan">gilgit, Pakistan</option>
+            <option value="Rahimyar Khan,Pakistan">Rahimyar Khan,Pakistan</option>
+            <option value="Karachi ,Paksitan">Karachi ,Paksitan</option>
+           
+          </select>
+          <br />
+          <input type="submit" id="submit" />
+        </div>
+        <div id="directions-panel"></div>
+      </div>
+    </div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Wait for the DOM content to be fully loaded
+          var submitButton = document.getElementById("submit");
+          
+          // Trigger click event programmatically
+          submitButton.click();
+      });
+      </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpfWMKfe2_9VO80AfeAfqI3YmEr9DnWE8&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
